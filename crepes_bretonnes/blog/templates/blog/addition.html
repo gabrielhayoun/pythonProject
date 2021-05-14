@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ma super calculatrice</h1>
+<p>{{ nombre1 }} + {{ nombre2 }}, ça fait <strong>{{ total }}</strong> !<br />
+    Nous pouvons également calculer la somme dans le template : {{ nombre1|add:nombre2 }}.
+
+    <li><a href="{% url "afficher_article" nombre1 %}">
+            Lien vers mon super article n° {{ nombre1 }} </a></li></p>
+
+</body>
+</html>
+
+<!-- Ce commentaire HTML sera visible dans le code source.
+-->
+{# Ce commentaire Django ne sera pas visible dans le
+  code source. #}
+
+{% comment %}
+    Ceci est une page d'exemple. Elle est composée de 3
+tableaux :
+    - tableau des ventes
+    - locations
+    - retours en garantie
+{% endcomment %}

@@ -1,0 +1,42 @@
+#{{ texte|truncatewords:80 }} (filtre pour troinquer le message)
+
+#Vous avez {{ nb_messages }} message{{ nb_messages|pluralize }}. (filtre pour mettre un s si pluriel)
+#Il y a {{ nb_chevaux }} chev{{ nb_chevaux|pluralize:"al,aux" }} dans l'écurie.
+
+#Bienvenue {{ pseudo|default:"visiteur" }} afficher le pseudo du visiteur ou visiteur
+
+## Condition
+{%ifage>25%}
+Bienvenue Monsieur, passez un excellent moment dans nos
+locaux. {%elifage>16%}
+    Vas-y, tu peux passer.
+{% else %}
+    Tu ne peux pas rentrer petit, tu es trop jeune !
+{% endif %}
+##
+
+##boucle for
+Les couleurs de l'arc-en-ciel sont :
+<ul>
+{% for couleur in couleurs %}
+    <li>{{ couleur }}</li>
+{% endfor %}
+</ul>
+
+ Les couleurs de l'arc-en-ciel sont : 2
+<ul>
+{% for code, nom in couleurs.items %}
+    <li style="color: #{{ code }}">{{ nom }}</li>
+    {% endfor %}
+</ul>
+##
+
+
+## si commentaire vide
+<h3>Commentaires de l'article</h3>
+{% for commentaire in commentaires %}
+    <p>{{ commentaire }}</p>
+{% empty %}
+    <p class="empty">Pas de commentaires pour le moment.
+{% endfor %}
+##

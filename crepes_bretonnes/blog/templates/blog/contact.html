@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if envoi %}Votre message a bien été envoyé !{% endif %}
+<form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+<!-- cross site equest forgery, protection pour le site-->
+    {{ form.as_p }}
+<!-- as_p : afficher comme un paragraphe
+as_table : afficher comme un tableau
+as-ul : afficher sous la forme d'une liste
+-->
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
